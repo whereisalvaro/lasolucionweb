@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Solución Firma Legal | Servicios Legales de Primera</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF8C00',
+                        secondary: '#222222',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(34, 34, 34, 0.9), rgba(255, 140, 0, 0.1)),
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Añadido para el efecto de parallax */
+        }
+
+        .practice-card {
+            transition: all 0.3s ease;
+        }
+
+        .practice-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 140, 0, 0.2);
+        }
+
+        .attorney-card {
+            transition: all 0.3s ease;
+        }
+
+        .attorney-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #FF8C00;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #FF8C00, #FFB347);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #FF6B00, #FF8C00);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
+        }
+
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            max-height: 300px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-white transition-colors duration-300">
+    <div class="bg-secondary text-white text-sm py-2 px-4">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0 text-center md:text-left">
+            <div class="flex flex-col md:flex-row space-y-1 md:space-y-0 md:space-x-4">
+                <span><i class="fas fa-phone-alt mr-1"></i> +591 70630210</span>
+                <span><i class="fas fa-envelope mr-1"></i> Lasolucion.firmalegal@gmail.com</span>
+                <span class="block md:inline"><i class="fas fa-map-marker-alt mr-1"></i> Edificio SAN PABLO, Av. 16 de Julio "EL PRADO" Oficina 1201, piso 12</span>
+            </div>
+            <div class="flex space-x-4 mt-2 md:mt-0">
+                <a href="https://www.linkedin.com/company/la-solución-firma-legal/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.facebook.com/LaSolucionBo" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bg-white shadow-lg sticky top-0 z-50 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6w1-0L_wzDpm8Y_tJ2EoEDwuAFVpNNQnDJw&s" alt="Logo La Solución Firma Legal" class="h-16 w-auto">
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#home" class="nav-link text-secondary font-medium hover:text-primary">Inicio</a>
+                        <a href="#about" class="nav-link text-secondary font-medium hover:text-primary">Sobre Nosotros</a>
+                        <a href="#practice" class="nav-link text-secondary font-medium hover:text-primary">Áreas de Práctica</a>
+                        <a href="#realestate" class="nav-link text-secondary font-medium hover:text-primary">La Solución Hogar</a>
+                        <a href="#attorneys" class="nav-link text-secondary font-medium hover:text-primary">Nuestro Equipo</a>
+                        <a href="#contact" class="nav-link text-secondary font-medium hover:text-primary">Contacto</a>
+                    </div>
+                    <button class="md:hidden text-secondary" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobileMenu" class="mobile-menu md:hidden">
+                <div class="pb-4 space-y-2">
+                    <a href="#home" class="block py-2 text-secondary hover:text-primary transition">Inicio</a>
+                    <a href="#about" class="block py-2 text-secondary hover:text-primary transition">Sobre Nosotros</a>
+                    <a href="#practice" class="block py-2 text-secondary hover:text-primary transition">Áreas de Práctica</a>
+                    <a href="#realestate" class="block py-2 text-secondary hover:text-primary transition">La Solución Hogar</a>
+                    <a href="#attorneys" class="block py-2 text-secondary hover:text-primary transition">Nuestro Equipo</a>
+                    <a href="#contact" class="block py-2 text-secondary hover:text-primary transition">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden py-16"> <div class="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+        <div class="container mx-auto px-4 z-20 relative">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 fade-in leading-tight">
+                    Justicia y <span class="text-primary">Excelencia</span> Legal
+                </h1>
+                <p class="text-lg md:text-xl mb-8 fade-in opacity-90 max-w-2xl mx-auto">
+                    La Solución Firma Legal brinda asesoría jurídica integral con profesionalismo y compromiso total hacia nuestros clientes.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in mb-12">
+                    <a href="https://wa.me/59170630210?text=Hola,%20me%20gustaría%20agendar%20una%20consulta%20legal.%20¿Podrían%20ayudarme?"
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn-primary text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg inline-block w-full sm:w-auto">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        Agendar Consulta
+                    </a>
+                    <a href="tel:+59170630210"
+                       class="border-2 border-white text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white hover:text-secondary transition inline-block w-full sm:w-auto">
+                        <i class="fas fa-phone mr-2"></i>
+                        Llamar Ahora
+                    </a>
+                </div>
+
+                <div class="max-w-4xl mx-auto fade-in">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-2xl">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white text-center mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Nuestra Ubicación
+                        </h3>
+                        <div class="bg-gray-200 rounded-xl h-48 sm:h-64 overflow-hidden mb-4">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15301.99400219251!2d-68.1333995!3d-16.5009123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f217a5240d0d1%3A0xecca09030bbe6f31!2sLa%20Soluci%C3%B3n%20Firma%20Legal!5e0!3m2!1sen!2sbo!4v1753713348839!5m2!1sen!2sbo" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <p class="text-white/90 text-center text-sm sm:text-base">
+                            <i class="fas fa-building mr-2"></i>
+                            Edificio SAN PABLO, Av. 16 de Julio "EL PRADO" Oficina 1201, piso 12
+                        </p>
+                        <div class="mt-6">
+                            <img src="https://cdn6.ultracasas.com/dyn/yastaimages/7d3c313a96cdeef8d3409ca6ac535378c43226" alt="Fachada del Edificio SAN PABLO" class="w-full max-h-[250px] sm:max-h-[400px] object-cover rounded-xl shadow-md">
+                            <p class="text-white/70 text-xs sm:text-sm mt-2">Fachada del Edificio SAN PABLO, donde se encuentra nuestra oficina.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-primary py-12 sm:py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center text-white">
+                <div class="fade-in p-2 sm:p-4">
+                    <div class="text-white text-3xl sm:text-4xl md:text-5xl font-bold">500+</div>
+                    <p class="text-sm sm:text-base md:text-lg mt-2">Casos Exitosos</p>
+                </div>
+                <div class="fade-in p-2 sm:p-4">
+                    <div class="text-white text-3xl sm:text-4xl md:text-5xl font-bold">15+</div>
+                    <p class="text-sm sm:text-base md:text-lg mt-2">Años de Experiencia</p>
+                </div>
+                <div class="fade-in p-2 sm:p-4">
+                    <div class="text-white text-3xl sm:text-4xl md:text-5xl font-bold">98%</div>
+                    <p class="text-sm sm:text-base md:text-lg mt-2">Satisfacción Cliente</p>
+                </div>
+                <div class="fade-in p-2 sm:p-4">
+                    <div class="text-white text-3xl sm:text-4xl md:text-5xl font-bold">24/7</div>
+                    <p class="text-sm sm:text-base md:text-lg mt-2">Atención Disponible</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-12 sm:py-20 bg-gray-50 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 sm:mb-16">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
+                        Sobre <span class="text-primary">Nosotros</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                        La Solución Firma Legal brinda asesoría jurídica integral con profesionalismo y compromiso total hacia nuestros clientes.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
+                    <div class="fade-in">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-secondary mb-4 sm:mb-6">Nuestra Misión</h3>
+                        <p class="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
+                            Proporcionar servicios legales de la más alta calidad, combinando experiencia, innovación y un enfoque centrado en el cliente para lograr los mejores resultados posibles.
+                        </p>
+                        <div class="space-y-3 sm:space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-primary text-lg sm:text-xl mr-3"></i>
+                                <span class="text-gray-700 text-sm sm:text-base">Asesoría legal especializada</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-primary text-lg sm:text-xl mr-3"></i>
+                                <span class="text-gray-700 text-sm sm:text-base">Atención personalizada 24/7</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-primary text-lg sm:text-xl mr-3"></i>
+                                <span class="text-gray-700 text-sm sm:text-base">Resultados garantizados</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fade-in">
+                        <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl">
+                            <h4 class="text-xl sm:text-2xl font-bold text-secondary mb-4">¿Por qué elegirnos?</h4>
+                            <div class="space-y-4 sm:space-y-6">
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                                        <i class="fas fa-award text-white text-base sm:text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-secondary text-base sm:text-lg">Experiencia Comprobada</h5>
+                                        <p class="text-gray-600 text-sm sm:text-base">Más de 15 años resolviendo casos complejos</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                                        <i class="fas fa-users text-white text-base sm:text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-secondary text-base sm:text-lg">Equipo Especializado</h5>
+                                        <p class="text-gray-600 text-sm sm:text-base">Abogados expertos en múltiples áreas</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                                        <i class="fas fa-handshake text-white text-base sm:text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-secondary text-base sm:text-lg">Compromiso Total</h5>
+                                        <p class="text-gray-600 text-sm sm:text-base">Dedicación completa a cada caso</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="practice" class="py-12 sm:py-20 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
+                    Áreas de <span class="text-primary">Práctica</span>
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ofrecemos servicios legales especializados en diversas áreas del derecho
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="practice-card bg-white p-6 sm:p-8 rounded-2xl shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mb-4 sm:mb-6">
+                        <i class="fas fa-shield-alt text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-secondary mb-3 sm:mb-4">Derecho Penal</h3>
+                    <p class="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">Defensa penal, delitos económicos y representación en procesos judiciales.</p>
+                    <a href="#contact" class="text-primary font-semibold hover:text-orange-600 transition inline-flex items-center text-sm sm:text-base"> Más información <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <div class="practice-card bg-white p-6 sm:p-8 rounded-2xl shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mb-4 sm:mb-6">
+                        <i class="fas fa-gavel text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-secondary mb-3 sm:mb-4">Derecho Civil</h3>
+                    <p class="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">Contratos, responsabilidad civil, daños y perjuicios, y disputas comerciales.</p>
+                    <a href="#contact" class="text-primary font-semibold hover:text-orange-600 transition inline-flex items-center text-sm sm:text-base">
+                        Más información <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <div class="practice-card bg-white p-6 sm:p-8 rounded-2xl shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mb-4 sm:mb-6">
+                        <i class="fas fa-heart text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-secondary mb-3 sm:mb-4">Derecho Familiar</h3>
+                    <p class="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">Divorcios, custodia, pensiones alimentarias y adopciones.</p>
+                    <a href="#contact" class="text-primary font-semibold hover:text-orange-600 transition inline-flex items-center text-sm sm:text-base">
+                        Más información <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <div class="practice-card bg-white p-6 sm:p-8 rounded-2xl shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mb-4 sm:mb-6">
+                        <i class="fas fa-briefcase text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-secondary mb-3 sm:mb-4">Derecho Laboral</h3>
+                    <p class="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">Despidos, acoso laboral, negociación colectiva y derechos del trabajador.</p>
+                    <a href="#contact" class="text-primary font-semibold hover:text-orange-600 transition inline-flex items-center text-sm sm:text-base">
+                        Más información <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <div class="practice-card bg-white p-6 sm:p-8 rounded-2xl shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mb-4 sm:mb-6">
+                        <i class="fas fa-university text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-secondary mb-3 sm:mb-4">Derecho Administrativo</h3>
+                    <p class="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">Procedimientos administrativos, recursos y relaciones con entidades públicas.</p>
+                    <a href="#contact" class="text-primary font-semibold hover:text-orange-600 transition inline-flex items-center text-sm sm:text-base">
+                        Más información <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <div class="practice-card bg-white p-6 sm:p-8 rounded-2xl shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center mb-4 sm:mb-6">
+                        <i class="fas fa-home text-white text-xl sm:text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-secondary mb-3 sm:mb-4">Derecho Inmobiliario</h3>
+                    <p class="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">Compraventa, arrendamientos, hipotecas y resolución de conflictos inmobiliarios.</p>
+                    <a href="#contact" class="text-primary font-semibold hover:text-orange-600 transition inline-flex items-center text-sm sm:text-base">
+                        Más información <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="realestate" class="py-12 sm:py-20 bg-green-50 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 sm:mb-16">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
+                        La Solución <span class="text-green-600">Hogar</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                        Servicios especializados en bienes raíces y asesoría inmobiliaria integral
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-secondary mb-4 sm:mb-6">Servicios Inmobiliarios</h3>
+                        <div class="space-y-4 sm:space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-600 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                                    <i class="fas fa-key text-white text-base sm:text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-secondary text-base sm:text-lg">Compraventa de Propiedades</h4>
+                                    <p class="text-gray-600 text-sm sm:text-base">Asesoría completa en transacciones inmobiliarias</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-600 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                                    <i class="fas fa-file-contract text-white text-base sm:text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-secondary text-base sm:text-lg">Contratos de Arrendamiento</h4>
+                                    <p class="text-gray-600 text-sm sm:text-base">Elaboración y revisión de contratos de alquiler</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-600 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                                    <i class="fas fa-search text-white text-base sm:text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-secondary text-base sm:text-lg">Auditoría Legal Inmobiliaria</h4>
+                                    <p class="text-gray-600 text-sm sm:text-base">Verificación legal completa de propiedades</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border-l-4 border-green-600">
+                        <h4 class="text-xl sm:text-2xl font-bold text-secondary mb-4 sm:mb-6">Consulta Inmobiliaria</h4>
+                        <form id="realEstateForm" class="space-y-4">
+                            <div>
+                                <input type="text" name="name" placeholder="Nombre completo" class="w-full p-3 border border-gray-300 rounded-lg focus:border-green-600 focus:outline-none text-sm sm:text-base">
+                            </div>
+                            <div>
+                                <input type="email" name="email" placeholder="Correo electrónico" class="w-full p-3 border border-gray-300 rounded-lg focus:border-green-600 focus:outline-none text-sm sm:text-base">
+                            </div>
+                            <div>
+                                <input type="tel" name="phone" placeholder="Teléfono" class="w-full p-3 border border-gray-300 rounded-lg focus:border-green-600 focus:outline-none text-sm sm:text-base">
+                            </div>
+                            <div>
+                                <select name="queryType" class="w-full p-3 border border-gray-300 rounded-lg focus:border-green-600 focus:outline-none text-sm sm:text-base">
+                                    <option value="">Tipo de consulta</option>
+                                    <option>Compra de propiedad</option>
+                                    <option>Venta de propiedad</option>
+                                    <option>Arrendamiento</option>
+                                    <option>Verificación legal</option>
+                                </select>
+                            </div>
+                            <div>
+                                <textarea name="message" placeholder="Describe tu consulta" rows="3" class="w-full p-3 border border-gray-300 rounded-lg focus:border-green-600 focus:outline-none text-sm sm:text-base"></textarea>
+                            </div>
+                            <button type="submit" class="w-full text-white py-3 rounded-lg font-semibold bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg text-base sm:text-lg">
+                                Solicitar Consulta
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="attorneys" class="py-12 sm:py-20 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
+                    Nuestro <span class="text-primary">Equipo</span>
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Abogados especializados con amplia experiencia y compromiso con la excelencia
+                </p>
+            </div>
+
+
+            <div class="mb-12 sm:mb-16">
+                <h3 class="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-secondary">
+                    <span class="text-primary">Equipo Legal</span>
+                </h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <div class="attorney-card bg-white rounded-2xl shadow-lg overflow-hidden border-l-4 border-primary">
+                        <div class="h-40 sm:h-48 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
+                            <i class="fas fa-user-tie text-5xl sm:text-6xl text-primary"></i>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold text-secondary mb-1 sm:mb-2">Dr. Alvaro Vásquez Orozco</h3>
+                            <p class="text-primary font-semibold text-sm sm:text-base mb-2 sm:mb-3">CEO, Abogado y Médico Docente de la UMSA</p>
+                            <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">CEO de La Solución Firma Legal, Abogado y Médico Docente de la UMSA. Especializado en medicina legal y diversas áreas, ofrece una defensa integral y conocimiento profundo.</p>
+                            <p class="text-primary font-semibold text-sm sm:text-base">📱 75222322</p>
+                        </div>
+                    </div>
+
+                    <div class="attorney-card bg-white rounded-2xl shadow-lg overflow-hidden border-l-4 border-primary">
+                        <div class="h-40 sm:h-48 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
+                            <i class="fas fa-user-tie text-5xl sm:text-6xl text-primary"></i>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold text-secondary mb-1 sm:mb-2">Dr. Miguel Ángel Condori Mamani</h3>
+                            <p class="text-primary font-semibold text-sm sm:text-base mb-2 sm:mb-3">Abogado Especialista en Derecho Penal, Laboral y Civil</p>
+                            <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Pilar fundamental del equipo, destacándose por su amplia experiencia en derecho penal, laboral y civil. Profesional versátil y eficaz, enfocado en obtener los mejores resultados.</p>
+                            <p class="text-primary font-semibold text-sm sm:text-base">📱 63168219</p>
+                        </div>
+                    </div>
+
+                    <div class="attorney-card bg-white rounded-2xl shadow-lg overflow-hidden border-l-4 border-primary">
+                        <div class="h-40 sm:h-48 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
+                            <i class="fas fa-user-tie text-5xl sm:text-6xl text-primary"></i>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold text-secondary mb-1 sm:mb-2">Dra. Wendoline Magda Morales Morales</h3>
+                            <p class="text-primary font-semibold text-sm sm:text-base mb-2 sm:mb-3">Abogada Especialista en Derecho Familiar y Administrativo</p>
+                            <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Abogada especialista en Derecho Familiar y Administrativo. Ex Jefa Departamental del SERECI, su trayectoria y conocimiento garantizan representación experta y empática.</p>
+                            <p class="text-primary font-semibold text-sm sm:text-base">📱 70678624</p>
+                        </div>
+                    </div>
+
+                    <div class="attorney-card bg-white rounded-2xl shadow-lg overflow-hidden border-l-4 border-primary">
+                        <div class="h-40 sm:h-48 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
+                            <i class="fas fa-user-tie text-5xl sm:text-6xl text-primary"></i>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold text-secondary mb-1 sm:mb-2">Dr. Cristhian Cortez Aruquipa</h3>
+                            <p class="text-primary font-semibold text-sm sm:text-base mb-2 sm:mb-3">Abogado Litigante y Procurador Legal</p>
+                            <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Abogado Litigante y Procurador Legal. Su rol es crucial para la eficiencia operativa de la firma, asegurando el avance fluido de los casos y asistiendo eficazmente a los clientes.</p>
+                            <p class="text-primary font-semibold text-sm sm:text-base">📱 71292998</p>
+                        </div>
+                    </div>
+
+                    <div class="attorney-card bg-white rounded-2xl shadow-lg overflow-hidden border-l-4 border-primary">
+                        <div class="h-40 sm:h-48 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
+                            <i class="fas fa-user-graduate text-5xl sm:text-6xl text-primary"></i>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold text-secondary mb-1 sm:mb-2">Andrea Gutiérrez Herrera</h3>
+                            <p class="text-primary font-semibold text-sm sm:text-base mb-2 sm:mb-3">Pasante Legal</p>
+                            <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Pasante Legal dedicada en formación. Su compromiso y entusiasmo contribuyen al soporte del equipo, asistiendo en investigación y preparación de casos.</p>
+                            <p class="text-primary font-semibold text-sm sm:text-base">📱 61102237</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-secondary">
+                    <span class="text-green-600">Equipo Inmobiliario</span>
+                </h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <div class="attorney-card bg-white rounded-2xl shadow-lg overflow-hidden border-l-4 border-green-600">
+                        <div class="h-40 sm:h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                            <i class="fas fa-user-tie text-5xl sm:text-6xl text-green-600"></i>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold text-secondary mb-1 sm:mb-2">Damariz Pilar Monrroy Nina</h3>
+                            <p class="text-green-600 font-semibold text-sm sm:text-base mb-2 sm:mb-3">Gerente de Operaciones Inmobiliarias</p>
+                            <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Gerente de Operaciones Inmobiliarias en La Solución Hogar. Como Contadora, optimiza la gestión financiera y administrativa del área inmobiliaria, asegurando eficiencia en transacciones.</p>
+                            <p class="text-green-600 font-semibold text-sm sm:text-base">📱 75255976</p>
+                        </div>
+                    </div>
+
+                    <div class="attorney-card bg-white rounded-2xl shadow-lg overflow-hidden border-l-4 border-green-600">
+                        <div class="h-40 sm:h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                            <i class="fas fa-user-tie text-5xl sm:text-6xl text-green-600"></i>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold text-secondary mb-1 sm:mb-2">Alvaro Vásquez Morales</h3>
+                            <p class="text-green-600 font-semibold text-sm sm:text-base mb-2 sm:mb-3">Supervisor de Agentes Inmobiliarios y Asesor Legal Inmobiliario</p>
+                            <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Supervisor de Agentes Inmobiliarios y Asesor Legal Inmobiliario. Su conocimiento legal y experiencia garantizan operaciones seguras y asesoría integral a compradores y vendedores.</p>
+                            <p class="text-green-600 font-semibold text-sm sm:text-base">📱 75240795</p>
+                        </div>
+                    </div>
+
+                    <div class="attorney-card bg-white rounded-2xl shadow-lg overflow-hidden border-l-4 border-green-600">
+                        <div class="h-40 sm:h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                            <i class="fas fa-user-tie text-5xl sm:text-6xl text-green-600"></i>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold text-secondary mb-1 sm:mb-2">Mateo Santamaría Velásquez</h3>
+                            <p class="text-green-600 font-semibold text-sm sm:text-base mb-2 sm:mb-3">Agente Inmobiliario (25 años)</p>
+                            <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Agente Inmobiliario con 25 años, conecta a clientes con propiedades ideales, ofreciendo un servicio excepcional en todo el proceso inmobiliario.</p>
+                            <p class="text-green-600 font-semibold text-sm sm:text-base">📱 74260974</p>
+                        </div>
+                    </div>
+
+                    <div class="attorney-card bg-white rounded-2xl shadow-lg overflow-hidden border-l-4 border-green-600">
+                        <div class="h-40 sm:h-48 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                            <i class="fas fa-user-graduate text-5xl sm:text-6xl text-green-600"></i>
+                        </div>
+                        <div class="p-4 sm:p-6">
+                            <h3 class="text-lg sm:text-xl font-bold text-secondary mb-1 sm:mb-2">José Alejandro Soliz Mamani</h3>
+                            <p class="text-green-600 font-semibold text-sm sm:text-base mb-2 sm:mb-3">Pasante Agente Inmobiliario</p>
+                            <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Pasante en formación dentro del área inmobiliaria, apoyando activamente al equipo. Valioso activo para La Solución Hogar, contribuyendo a estrategias de mercado y atención al cliente.</p>
+                            <p class="text-green-600 font-semibold text-sm sm:text-base">📱 76590255</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-12 sm:py-20 bg-gray-50 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 sm:mb-16">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-4">
+                        <span class="text-primary">Contáctanos</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                        Estamos aquí para ayudarte. Contáctanos para una consulta profesional
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 sm:gap-12">
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-secondary mb-6 sm:mb-8">Información de Contacto</h3>
+                        <div class="space-y-4 sm:space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white text-base sm:text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-secondary text-base sm:text-lg">Dirección</h4>
+                                    <p class="text-gray-600 text-sm sm:text-base">Edificio SAN PABLO<br>Av. 16 de Julio "EL PRADO"<br>Oficina 1201, piso 12</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone text-white text-base sm:text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-secondary text-base sm:text-lg">Teléfono</h4>
+                                    <p class="text-gray-600 text-sm sm:text-base">+591 70630210<br>+591 61111198</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-white text-base sm:text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-secondary text-base sm:text-lg">Email</h4>
+                                    <p class="text-gray-600 text-sm sm:text-base">Lasolucion.firmalegal@gmail.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                                    <i class="fas fa-clock text-white text-base sm:text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-secondary text-base sm:text-lg">Horarios</h4>
+                                    <p class="text-gray-600 text-sm sm:text-base">Lunes - Viernes: 8:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 1:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl">
+                        <h3 class="text-xl sm:text-2xl font-bold text-secondary mb-4 sm:mb-6">Envíanos un Mensaje</h3>
+                        <form id="contactForm" class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="text" name="firstName" placeholder="Nombre" class="w-full p-3 border border-gray-300 rounded-lg focus:border-primary focus:outline-none text-sm sm:text-base" required>
+                                <input type="text" name="lastName" placeholder="Apellido" class="w-full p-3 border border-gray-300 rounded-lg focus:border-primary focus:outline-none text-sm sm:text-base" required>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="email" name="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded-lg focus:border-primary focus:outline-none text-sm sm:text-base" required>
+                                <input type="tel" name="phone" placeholder="Teléfono" class="w-full p-3 border border-gray-300 rounded-lg focus:border-primary focus:outline-none text-sm sm:text-base" required>
+                            </div>
+                            <select name="legalArea" class="w-full p-3 border border-gray-300 rounded-lg focus:border-primary focus:outline-none text-sm sm:text-base" required>
+                                <option value="">Selecciona el área legal</option>
+                                <option>Derecho Penal</option>
+                                <option>Derecho Civil</option>
+                                <option>Derecho Familiar</option>
+                                <option>Derecho Laboral</option>
+                                <option>Derecho Administrativo</option>
+                                <option>Derecho Constitucional</option>
+                                <option>Derecho Inmobiliario</option>
+                            </select>
+                            <textarea name="message" placeholder="Describe tu consulta legal" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:border-primary focus:outline-none text-sm sm:text-base" required></textarea>
+                            <button type="submit" class="btn-primary w-full text-white py-3 rounded-lg font-semibold text-base sm:text-lg">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Enviar Mensaje
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-secondary text-white py-8 sm:py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center sm:text-left">
+                <div class="col-span-full md:col-span-1">
+                    <div class="mb-4 sm:mb-6 flex justify-center sm:justify-start">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6w1-0L_wzDpm8Y_tJ2EoEDwuAFVpNNQnDJw&s" alt="Logo La Solución Firma Legal" class="h-14 sm:h-16 w-auto">
+                    </div>
+                    <p class="text-gray-300 text-sm sm:text-base mb-4">La Solución Firma Legal brinda asesoría jurídica integral con profesionalismo y compromiso total hacia nuestros clientes.</p>
+                    <div class="flex space-x-4 justify-center sm:justify-start">
+                        <a href="https://www.facebook.com/LaSolucionBo" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition text-lg">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/la-solución-firma-legal/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-primary transition text-lg">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Servicios</h4>
+                    <ul class="space-y-1 sm:space-y-2 text-gray-300 text-sm sm:text-base">
+                        <li><a href="#practice" class="hover:text-primary transition">Derecho Penal</a></li>
+                        <li><a href="#practice" class="hover:text-primary transition">Derecho Civil</a></li>
+                        <li><a href="#practice" class="hover:text-primary transition">Derecho Familiar</a></li>
+                        <li><a href="#practice" class="hover:text-primary transition">Derecho Laboral</a></li>
+                        <li><a href="#practice" class="hover:text-primary transition">Derecho Administrativo</a></li>
+                        <li><a href="#practice" class="hover:text-primary transition">Derecho Inmobiliario</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-1 sm:space-y-2 text-gray-300 text-sm sm:text-base">
+                        <li><a href="#about" class="hover:text-primary transition">Sobre Nosotros</a></li>
+                        <li><a href="#practice" class="hover:text-primary transition">Áreas de Práctica</a></li>
+                        <li><a href="#attorneys" class="hover:text-primary transition">Nuestro Equipo</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Contacto</h4>
+                    <div class="space-y-2 text-gray-300 text-sm sm:text-base">
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> Edificio SAN PABLO<br>Av. 16 de Julio "EL PRADO"<br>Oficina 1201, piso 12</p>
+                        <p><i class="fas fa-phone mr-2"></i> +591 70630210</p>
+                        <p><i class="fas fa-envelope mr-2"></i> Lasolucion.firmalegal@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-300 text-sm sm:text-base">
+                <p>© 2025 La Solución Firma Legal. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Email para los formularios
+        const TARGET_EMAIL = "Lasolucion.firmalegal@gmail.com";
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobileMenu');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Form handlers
+        // Function to handle form submission for mailto
+        function handleFormSubmission(event, formId, isRealEstate = false) {
+            event.preventDefault();
+            const form = document.getElementById(formId);
+            const formData = new FormData(form);
+            let subject = isRealEstate ? "Consulta Inmobiliaria desde La Solucion Hogar" : "Consulta Legal desde el sitio web";
+            let body = "Detalles de la consulta:\n\n";
+
+            for (let [name, value] of formData.entries()) {
+                // Formatear los nombres para que sean más legibles en el email
+                let formattedName = name.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+                if (formattedName === "First Name") formattedName = "Nombre";
+                if (formattedName === "Last Name") formattedName = "Apellido";
+                if (formattedName === "Email") formattedName = "Correo Electrónico";
+                if (formattedName === "Phone") formattedName = "Teléfono";
+                if (formattedName === "Query Type") formattedName = "Tipo de Consulta";
+                if (formattedName === "Legal Area") formattedName = "Área Legal";
+                if (formattedName === "Message") formattedName = "Mensaje";
+
+                body += `${formattedName}: ${value}\n`;
+            }
+
+            // Codificar el asunto y el cuerpo del mensaje para URL
+            const mailtoLink = `mailto:${TARGET_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            window.location.href = mailtoLink;
+
+            alert('Se abrirá tu cliente de correo para enviar la consulta.');
+            form.reset();
+        }
+
+        // Attach event listeners to the forms
+        document.getElementById('realEstateForm').addEventListener('submit', function(event) {
+            handleFormSubmission(event, 'realEstateForm', true);
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            handleFormSubmission(event, 'contactForm', false);
+        });
+
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.1s';
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements that should fade in
+        document.querySelectorAll('.practice-card, .attorney-card, .fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9661cf64530cb52f',t:'MTc1MzY3ODc5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>
